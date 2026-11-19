@@ -1,0 +1,17 @@
+{
+  "version": "0.2.0",
+  "configurations": [
+    {
+      "type": "java",
+      "name": "CogOnline Backend",
+      "request": "launch",
+      "mainClass": "com.barangay.BarangayApplication",
+      "env": {
+        "DB_URL": "jdbc:postgresql://aws-0-ap-southeast-1.pooler.supabase.com:5432/postgres?sslmode=require",
+        "DB_USER": "postgres.ervzghzbiqencwerzqov",
+        "DB_PASSWORD": "CogOnline2026Db",
+        "JWT_SECRET": "cogonline-super-secret-key-change-me-123456"
+      }
+    }
+  ]
+}
