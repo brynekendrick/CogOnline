@@ -9,7 +9,7 @@
       "env": {
         "DB_URL": "jdbc:postgresql://aws-0-ap-southeast-1.pooler.supabase.com:5432/postgres?sslmode=require",
         "DB_USER": "postgres.ervzghzbiqencwerzqov",
-        "DB_PASSWORD": "CogOnline2026Db",
+        "DB_PASSWORD": "091255456Bryne",
         "JWT_SECRET": "cogonline-super-secret-key-change-me-123456"
       }
     }

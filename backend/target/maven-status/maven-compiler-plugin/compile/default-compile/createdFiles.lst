@@ -1,0 +1,10 @@
+com\barangay\dto\ChangePasswordRequest.class
+com\barangay\repository\PasswordResetTokenRepository$ResetTokenRecord.class
+com\barangay\dto\ForgotPasswordRequest.class
+com\barangay\dto\ForgotPasswordResponse.class
+com\barangay\service\PasswordPolicy.class
+com\barangay\dto\ResetPasswordRequest.class
+com\barangay\controller\ProfileController.class
+com\barangay\service\ProfileService.class
+com\barangay\repository\PasswordResetTokenRepository.class
+com\barangay\dto\UpdateProfileRequest.class
