@@ -1,0 +1,177 @@
+/* Edit Profile page (light theme, aligned with the auth pages) */
+
+.profile-back {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  align-self: flex-start;
+  padding: 8px 14px;
+  border-radius: 999px;
+  border: 1px solid var(--border);
+  background: rgba(255, 255, 255, 0.7);
+  color: var(--text-muted);
+  font-family: inherit;
+  font-size: 13px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.profile-back:hover {
+  color: var(--accent-text);
+  border-color: var(--accent);
+  background: #fff;
+}
+
+.profile-head h1 {
+  margin: 4px 0 6px;
+  font-size: 28px;
+  font-weight: 800;
+  letter-spacing: -0.6px;
+  color: var(--text-light);
+}
+
+.profile-head p {
+  margin: 0;
+  font-size: 14px;
+  color: var(--text-muted);
+}
+
+.profile-card {
+  display: flex;
+  flex-direction: column;
+  gap: 30px;
+  background: var(--card-bg);
+  border: 1px solid var(--border);
+  border-radius: 22px;
+  padding: 32px;
+  box-shadow: 0 20px 50px var(--shadow);
+}
+
+.profile-section {
+  display: flex;
+  flex-direction: column;
+  gap: 18px;
+  padding-bottom: 28px;
+  border-bottom: 1px solid rgba(191, 230, 214, 0.7);
+}
+
+.profile-section:last-of-type {
+  padding-bottom: 0;
+  border-bottom: none;
+}
+
+.profile-section-title {
+  margin: 0;
+  font-size: 12px;
+  font-weight: 700;
+  letter-spacing: 1.6px;
+  text-transform: uppercase;
+  color: var(--accent-text);
+}
+
+.field-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 18px;
+}
+
+.field {
+  display: flex;
+  flex-direction: column;
+  gap: 7px;
+}
+
+.field.span-2 {
+  grid-column: 1 / -1;
+}
+
+.field label {
+  font-size: 12px;
+  font-weight: 600;
+  letter-spacing: 0.5px;
+  text-transform: uppercase;
+  color: #3d5a50;
+}
+
+.field input,
+.field select {
+  width: 100%;
+  padding: 13px 15px;
+  border: 1px solid var(--border);
+  border-radius: 13px;
+  font-family: inherit;
+  font-size: 14px;
+  color: var(--text-light);
+  background: #fff;
+  outline: none;
+  transition: all 0.25s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.field input::placeholder {
+  color: #8aa39a;
+}
+
+.field input:focus,
+.field select:focus {
+  border-color: var(--accent);
+  box-shadow: 0 0 0 4px rgba(16, 185, 129, 0.15);
+}
+
+.field input.error,
+.field select.error {
+  border-color: var(--error);
+  background: var(--error-light);
+}
+
+.profile-actions {
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+  gap: 14px;
+  padding-top: 4px;
+}
+
+.btn-ghost {
+  padding: 14px 28px;
+  border-radius: 999px;
+  border: 1px solid var(--border);
+  background: transparent;
+  color: var(--text-muted);
+  font-family: inherit;
+  font-size: 15px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.btn-ghost:hover:not(:disabled) {
+  border-color: var(--accent);
+  color: var(--accent-text);
+  background: rgba(16, 185, 129, 0.06);
+}
+
+.btn-ghost:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+}
+
+@media (max-width: 640px) {
+  .profile-card {
+    padding: 22px 18px;
+    gap: 24px;
+  }
+
+  .field-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .profile-actions {
+    flex-direction: column-reverse;
+  }
+
+  .profile-actions .btn-ghost,
+  .profile-actions .btn-primary {
+    width: 100%;
+  }
+}

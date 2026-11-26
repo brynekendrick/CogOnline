@@ -3,6 +3,11 @@ import Register from "./features/auth/Register";
 import RegisterSuccess from "./features/auth/RegisterSuccess";
 import Login from "./features/auth/Login";
 import Logout from "./features/auth/Logout";
+import ForgotPassword from "./features/auth/ForgotPassword";
+import ResetPassword from "./features/auth/ResetPassword";
+import ResidentDashboard from "./dashboard/ResidentDashboard";
+import EditProfile from "./dashboard/EditProfile";
+import AdminDashboard from "./dashboard/AdminDashboard";
 
 function getSession() {
   try {
@@ -12,58 +17,30 @@ function getSession() {
   }
 }
 
-function go(path) {
-  window.history.pushState(null, "", path);
-  window.dispatchEvent(new Event("pushstate"));
-}
-
-function RoleDashboard({ admin }) {
-  const s = getSession() || {};
-
-  const goLogout = () => {
-    sessionStorage.setItem("pre_logout_path", admin ? "/admin" : "/dashboard");
-    go("/logout");
-  };
-
-  return (
-    <div style={{ padding: 24 }}>
-      <h2>{admin ? "Admin" : "Resident"} dashboard</h2>
-      <p>Hello, {s.firstName} {s.lastName}</p>
-      <ul>
-        {admin ? (
-          <>
-            <li>Verify residents</li>
-            <li>Manage requests</li>
-          </>
-        ) : (
-          <>
-            <li>My requests</li>
-            <li>My profile</li>
-          </>
-        )}
-      </ul>
-      <button onClick={goLogout}>Logout</button>
-    </div>
-  );
-}
-
 function resolve(path, role) {
   const home = role === "ADMIN" ? "/admin" : "/dashboard";
 
   if (path === "/register") return role ? { redirect: home } : { element: <Register /> };
   if (path === "/register-success") return role ? { redirect: home } : { element: <RegisterSuccess /> };
   if (path === "/login") return role ? { redirect: home } : { element: <Login /> };
+  if (path === "/forgot-password") return role ? { redirect: home } : { element: <ForgotPassword /> };
+  if (path === "/reset-password") return role ? { redirect: home } : { element: <ResetPassword /> };
 
   if (path === "/dashboard") {
     if (!role) return { redirect: "/login" };
     if (role === "ADMIN") return { redirect: "/admin" };
-    return { element: <RoleDashboard /> };
+    return { element: <ResidentDashboard /> };
   }
 
   if (path === "/admin") {
     if (!role) return { redirect: "/login" };
     if (role !== "ADMIN") return { redirect: "/dashboard" };
-    return { element: <RoleDashboard admin /> };
+    return { element: <AdminDashboard /> };
+  }
+
+  if (path === "/edit-profile") {
+    if (!role) return { redirect: "/login" };
+    return { element: <EditProfile /> };
   }
 
   if (path === "/logout") return role ? { element: <Logout /> } : { redirect: "/login" };

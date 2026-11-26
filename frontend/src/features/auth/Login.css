@@ -95,6 +95,26 @@
   color: var(--error);
 }
 
+.form-label-row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 8px;
+}
+
+.forgot-link {
+  font-size: 12px;
+  font-weight: 600;
+  color: var(--accent-text);
+  text-decoration: none;
+  transition: color 0.2s ease;
+}
+
+.forgot-link:hover {
+  color: var(--accent-hover);
+  text-decoration: underline;
+}
+
 .login-card input {
   width: 100%;
   padding: 13px 16px;

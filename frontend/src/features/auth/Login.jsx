@@ -2,7 +2,7 @@ import { useState } from "react";
 import Layout from "../../shared/Layout";
 import Icon from "../../components/ui/Icons";
 import "./Login.css";
-import { prefetchUserData } from "../../lib/api";
+import { prefetchUserData, navigate } from "../../lib/api";
 import BorderGlow from "@/components/ui/border-glow";
 
 // 4.1 Login Form
@@ -146,7 +146,19 @@ export default function Login() {
             </div>
 
             <div className="form-group">
-              <label>Password <span className="req">*</span></label>
+              <div className="form-label-row">
+                <label>Password <span className="req">*</span></label>
+                <a
+                  className="forgot-link"
+                  href="/forgot-password"
+                  onClick={(e) => {
+                    e.preventDefault();
+                    navigate("/forgot-password");
+                  }}
+                >
+                  Forgot password?
+                </a>
+              </div>
               <div className="input-with-icon">
                 <input type={showPassword ? "text" : "password"} name="password"
                   value={form.password} onChange={handleChange} onBlur={handleBlur}
